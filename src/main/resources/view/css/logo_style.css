@@ -1,0 +1,13 @@
+.main_logo_pane {
+    -fx-background-image: url("../../img/MainBackground.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+
+}
+
+.gameTitle{
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-max-width: 30px;
+    -fx-font-size: 14pt;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane fx:id="main_logo_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main_logo_pane" stylesheets="@../css/logo_style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogoController">
+   <children>
+      <BorderPane layoutY="-2.0" prefHeight="420.0" prefWidth="593.0">
+         <center>
+            <VBox alignment="CENTER" prefHeight="324.0" prefWidth="594.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblTitle" text="Pixel" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="51.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" text="Quest" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="51.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" text="Press SPACE to start " textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="-150.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
