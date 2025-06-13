@@ -1,0 +1,28 @@
+.loginPane{
+    -fx-background-image: url("../../img/descarga.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.titleLbl{
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.usernameTxt, .passwordTxt{
+    -fx-pref-width: 300px;
+}
+
+.loginBtn{
+    -fx-pref-width: 300px;
+
+}
+
+.registerLink{
+    -fx-text-fill: #f2f2f2;
+    -fx-font-size: 16px;
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+

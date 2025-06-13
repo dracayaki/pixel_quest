@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<?import javafx.scene.layout.StackPane?>
+<StackPane fx:id="main_logo_pane" prefHeight="600" prefWidth="800" styleClass="main_logo_pane"
+           stylesheets="@../css/logo_style.css"
+
+           onKeyPressed="#handleKeyPressed"
+           xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controller.LogoController">
+   <VBox alignment="CENTER"  spacing="10">
+      <Label fx:id="lblTitle" text="Pixel" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="51.0"/>
+         </font>
+      </Label>
+      <Label fx:id="lblTitle2" alignment="CENTER" contentDisplay="CENTER" text="Quest"
+             textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="51.0"/>
+         </font>
+      </Label>
+      <Label contentDisplay="BOTTOM" text="Press SPACE to start" textFill="WHITE">
+         <font>
+            <Font size="24.0"/>
+         </font>
+         <padding>
+            <Insets bottom="20.0"/>
+         </padding>
+      </Label>
+   </VBox>
+</StackPane>
