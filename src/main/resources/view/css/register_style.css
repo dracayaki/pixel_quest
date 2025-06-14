@@ -1,5 +1,5 @@
 .loginPane{
-    -fx-background-image: url("../../img/loginBackground.jpg");
+    -fx-background-image: url("../../img/registerBackground.jpg");
     -fx-background-size: cover;
     -fx-background-position: center center;
 }

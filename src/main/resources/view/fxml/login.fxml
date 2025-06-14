@@ -19,7 +19,7 @@
       <Label fx:id="titleLbl" text="Login" styleClass="titleLbl"/>
       <TextField fx:id="usernameTxt" prefWidth="300.0" promptText="Username" styleClass="usernameTxt"/>
       <PasswordField fx:id="passwordTxt" prefWidth="300.0" promptText="Password" styleClass="passwordTxt"/>
-      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLogin" prefWidth="300.0" text="Button" styleClass="loginBtn"/>
+      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLogin" prefWidth="300.0" text="Login" styleClass="loginBtn"/>
       <Hyperlink fx:id="registerLink" onAction="#registerAction" text="Don't have an account? Register here" styleClass="registerLink"/>
    </VBox>
 </StackPane>

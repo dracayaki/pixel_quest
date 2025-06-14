@@ -18,10 +18,10 @@ public class LogoController {
     public void handleKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.SPACE){
             try {
-                System.out.println("should open");
                 Main.setScene("/view/fxml/login.fxml", "Login");
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println("Fail in the login");
             }
         }
     }

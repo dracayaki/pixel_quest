@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<StackPane prefHeight="600" prefWidth="800"
+           stylesheets="@../css/register_style.css"
+           styleClass="loginPane"
+           xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controller.RegisterController">
+    <VBox fx:id="loginPane" alignment="CENTER" maxWidth="350" maxHeight="350" spacing="15.0" >
+        <Label fx:id="titleLbl" text="Login" styleClass="titleLbl"/>
+        <TextField fx:id="usernameTxt" prefWidth="300.0" promptText="Username" styleClass="usernameTxt"/>
+        <PasswordField fx:id="passwordTxt" prefWidth="300.0" promptText="Password" styleClass="passwordTxt"/>
+        <PasswordField fx:id="confirmPasswordTxt" prefWidth="300" promptText="Repeat password" styleClass="passwordTxt"/>
+        <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#handleRegister" prefWidth="300.0" text="Register now" styleClass="loginBtn"/>
+
+    </VBox>
+</StackPane>
