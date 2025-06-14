@@ -3,9 +3,9 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import model.DAO.UserDAO;
+import model.Object.Session;
 import model.Object.User;
 
 import java.io.IOException;
@@ -59,7 +59,10 @@ public class LoginController {
 
         if (user != null) {
             try {
-                Main.setScene("/view/fxml/level.fxml", "Level");
+                Session currentSession = new Session();
+                Session.setCurrentUser(user);
+                Main.setScene("/view/fxml/levelMenu.fxml", "Level");
+
             } catch (IOException e) {
                 e.printStackTrace();
                 showAlert("Error", "Something went wrong during the login");
