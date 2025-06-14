@@ -1,13 +1,15 @@
-.levelGrid {
-    -fx-background-image: url("../../img/levelBackground.jpg");
+.timerLbl {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+}
+
+.borderPane {
+    -fx-background-image:  url("../../img/path.jpg");
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 
-.levelLbl {
-    -fx-text-fill: #FFFFFF;
-}
-
-.btnLevel {
-    -fx-background-color: #000000;
+.levelGrid{
+    -fx-background-color: transparent;
 }

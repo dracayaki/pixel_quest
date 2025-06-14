@@ -13,7 +13,7 @@
           xmlns="http://javafx.com/javafx/23.0.1"
           xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="controller.LevelMenuController"
-          stylesheets="@../css/level_style.css"
+          stylesheets="@../css/menuLevel_style.css"
           styleClass="levelGrid"
           prefWidth="800" prefHeight="600">
 

@@ -1,0 +1,13 @@
+.levelGrid {
+    -fx-background-image: url("../../img/levelBackground.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.levelLbl {
+    -fx-text-fill: #FFFFFF;
+}
+
+.btnLevel {
+    -fx-background-color: #000000;
+}

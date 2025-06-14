@@ -6,9 +6,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.LevelController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="600" prefWidth="800"
+            stylesheets="@../css/level_style.css"
+            styleClass="borderPane">
 
-</AnchorPane>
+
+    <top>
+        <Label fx:id="timerLbl" text="Time: 00:00" styleClass="timerLbl" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <GridPane fx:id="levelGrid" hgap="0" vgap="0"
+        alignment="CENTER" BorderPane.alignment="CENTER" styleClass="levelGrid"/>
+    </center>
+</BorderPane>
