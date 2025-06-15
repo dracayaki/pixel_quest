@@ -9,7 +9,7 @@
 
 
 <?import javafx.scene.layout.StackPane?>
-<StackPane fx:id="main_logo_pane" prefHeight="600" prefWidth="800" styleClass="main_logo_pane"
+<StackPane fx:id="main_logo_pane" prefHeight="700" prefWidth="800" styleClass="main_logo_pane"
            stylesheets="@../css/logo_style.css"
 
            onKeyPressed="#handleKeyPressed"

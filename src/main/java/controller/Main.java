@@ -19,7 +19,7 @@ public class Main extends Application {
 
     public static void setScene(String fxmlName, String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxmlName));
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 800, 700);
         primaryStage.setScene(scene);
         primaryStage.setTitle(title);
         primaryStage.setResizable(false);

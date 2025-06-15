@@ -77,4 +77,22 @@ public class UserDAO {
             return false;
         }
     }
+
+    public void updateLastLevelPlayed(int userId, int newLevel) {
+        String query = "update user set lastLevelPlayed=? where id_user=?";
+
+        try (Connection con = connectorBBDD.getConnection()){
+
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setInt(1, newLevel);
+            ps.setInt(2, userId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("We couldn't update the last level played by user");
+        }
+    }
 }

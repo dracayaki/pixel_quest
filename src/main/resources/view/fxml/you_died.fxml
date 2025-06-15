@@ -12,7 +12,7 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.DeadController"
-      prefHeight="600" prefWidth="800"
+      prefHeight="700" prefWidth="800"
       alignment="CENTER" spacing="20"
       stylesheets="@../css/dead_style.css"
       styleClass="vbox">

@@ -25,7 +25,7 @@ public class LevelController implements Initializable {
     public GridPane levelGrid;
     public Label timerLbl;
     private int currentLevel;
-    private static final int TILE_SIZE = 50;
+    private static final int TILE_SIZE = 32;
     private static final int TIME_LIMIT = 120;
     private Thread timerThread;
     private int snakeRow;
@@ -160,6 +160,16 @@ public class LevelController implements Initializable {
             snakeBody.add(0, newSegment);
             map[newRow][newCol] = "E";
             removeNodeAt(newRow, newCol);
+
+            if (!hasMoreCoins()) {
+                Platform.runLater(() -> {
+                    try {
+                        Main.setScene("/view/fxml/you_won.fxml", "You Won");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
         } else {
             ImageView tail = snakeBody.remove(snakeBody.size() - 1);
             GridPane.setRowIndex(tail, newRow);
@@ -182,11 +192,23 @@ public class LevelController implements Initializable {
         );
     }
 
+
     private ImageView createSnakeBody() {
         ImageView body = new ImageView(new Image("/img/snake.jpg"));
         body.setFitWidth(TILE_SIZE);
         body.setFitHeight(TILE_SIZE);
         body.setPreserveRatio(true);
         return body;
+    }
+
+    private boolean hasMoreCoins() {
+        for (String[] row : map) {
+            for (String cell : row) {
+                if (cell.equals("C")) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

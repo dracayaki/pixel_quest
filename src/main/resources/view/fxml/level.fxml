@@ -9,7 +9,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.LevelController"
-            prefHeight="600" prefWidth="800"
+            prefHeight="700" prefWidth="800"
             stylesheets="@../css/level_style.css"
             styleClass="borderPane">
 
