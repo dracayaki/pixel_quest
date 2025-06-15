@@ -22,6 +22,15 @@
 
             <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
 
+            <Button fx:id="settingsBtn" onAction="#handleSettings"
+                    style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <graphic>
+                    <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                        <Image url="@../../img/settings.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+
             <Button fx:id="exitBtn" onAction="#handleExit"
                     style="-fx-background-color: transparent; -fx-cursor: hand;">
                 <graphic>

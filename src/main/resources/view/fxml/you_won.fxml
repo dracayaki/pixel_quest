@@ -15,6 +15,14 @@
     <top>
         <HBox alignment="TOP_RIGHT" spacing="10" style="-fx-padding: 10; -fx-background-color: #f0cede " BorderPane.alignment="TOP_RIGHT">
             <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="settingsBtn" onAction="#handleSettings"
+                    style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <graphic>
+                    <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                        <Image url="@../../img/settings.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
             <Button fx:id="exitBtn" onAction="#handleExit"
                     style="-fx-background-color: transparent; -fx-cursor: hand;"
                     pickOnBounds="true" maxWidth="40" maxHeight="40">

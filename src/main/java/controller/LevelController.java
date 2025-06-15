@@ -33,6 +33,7 @@ public class LevelController implements Initializable {
     private static final int TILE_SIZE = 32;
     public Button exitBtn;
     public Region spacer;
+    public Button settingsBtn;
     private int timeLimit;
     private int snakeRow;
     private int snakeCol;
@@ -256,6 +257,15 @@ public class LevelController implements Initializable {
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
             System.exit(0);
+        }
+    }
+
+    public void handleSettings(ActionEvent actionEvent) {
+        System.out.println("Opening settings");
+        try {
+            Main.setScene("/view/fxml/settings.fxml", "Settings");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -13,6 +13,7 @@ import model.Object.RecordEntry;
 import model.Object.Session;
 import model.Object.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class WinController  implements Initializable {
     public TableColumn timeCol;
 
     private static int currentLevelId;
+    public Button settingsBtn;
 
     public static void setLevelData(int id) {
         currentLevelId = id;
@@ -99,4 +101,12 @@ public class WinController  implements Initializable {
     }
 
 
+    public void handleSettings(ActionEvent actionEvent) {
+        System.out.println("Opening settings");
+        try {
+            Main.setScene("/view/fxml/settings.fxml", "Settings");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

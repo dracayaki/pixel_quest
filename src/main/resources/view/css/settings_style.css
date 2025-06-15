@@ -5,5 +5,22 @@
 }
 
 .settingsTitle {
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.btn_close {
+    -fx-background-color: #8b8acc;
+    -fx-text-fill: white;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 20px;
+
+}
+
+.lbl {
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
 
 }

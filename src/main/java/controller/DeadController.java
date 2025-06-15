@@ -15,6 +15,7 @@ public class DeadController {
     public ImageView deathImage;
     public Button menuBtn;
     public Button exitBtn;
+    public Button settingsBtn;
 
     public void handleRetry(ActionEvent actionEvent) {
         try {
@@ -43,6 +44,15 @@ public class DeadController {
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
             System.exit(0);
+        }
+    }
+
+    public void handleSettings(ActionEvent actionEvent) {
+        System.out.println("Opening settings");
+        try {
+            Main.setScene("/view/fxml/settings.fxml", "Settings");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

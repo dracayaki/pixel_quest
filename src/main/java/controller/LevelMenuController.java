@@ -23,6 +23,7 @@ public class LevelMenuController {
     public Button btnLevel6;
     public GridPane levelGrid;
     public Button exitBtn;
+    public Button settingsBtn;
 
 
     public void initialize() {
@@ -76,6 +77,15 @@ public class LevelMenuController {
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
             System.exit(0);
+        }
+    }
+
+    public void handleSettings(ActionEvent actionEvent) {
+        System.out.println("Opening settings");
+        try {
+            Main.setScene("/view/fxml/settings.fxml", "Settings");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
