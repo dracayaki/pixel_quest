@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import model.Object.MusicPlayer;
 
 import java.io.IOException;
 
@@ -14,6 +16,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        MusicPlayer.play(0);
         setScene("/view/fxml/main.fxml", "Pixel Quest");
     }
 
@@ -23,6 +27,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle(title);
         primaryStage.setResizable(false);
+
         primaryStage.show();
 
         scene.getRoot().requestFocus(); // asi la ventana puede detectar las teclas desde el primer momento

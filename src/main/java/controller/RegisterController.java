@@ -7,6 +7,7 @@ import model.DAO.UserDAO;
 import model.Object.User;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class RegisterController {
     public VBox loginPane;
@@ -15,6 +16,7 @@ public class RegisterController {
     public PasswordField passwordTxt;
     public Button registerBtn;
     public PasswordField confirmPasswordTxt;
+    public Button exitBtn;
 
     public void handleRegister(ActionEvent actionEvent) {
         String username = usernameTxt.getText().trim();
@@ -66,6 +68,20 @@ public class RegisterController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Close Application?");
+        alert.setContentText("Are you sure you want to exit?");
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            System.exit(0);
+        }
     }
 }
 

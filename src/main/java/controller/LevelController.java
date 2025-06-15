@@ -1,13 +1,18 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import model.DAO.LevelDAO;
 import model.Object.Level;
 import model.Object.Session;
@@ -18,27 +23,28 @@ import java.net.URL;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LevelController implements Initializable {
 
     public GridPane levelGrid;
     public Label timerLbl;
-    private int currentLevel;
     private static final int TILE_SIZE = 32;
-    private static final int TIME_LIMIT = 120;
-    private Thread timerThread;
+    public Button exitBtn;
+    public Region spacer;
+    private int timeLimit;
     private int snakeRow;
     private int snakeCol;
     private List<ImageView> snakeBody = new ArrayList<>();
     private String[][] map;
+    private int currentPoints = 0;
+    private long startTime;
 
     public void setLevel(int level) {
-        this.currentLevel = level;
-        System.out.println("Current level: " + currentLevel);
+
+        System.out.println("Current level: " + level);
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +54,7 @@ public class LevelController implements Initializable {
 
         if (level != null) {
             map = level.createMap();
+            timeLimit = level.getTimeLimit();
             drawMap(map);
             startTimer();
 
@@ -106,8 +113,10 @@ public class LevelController implements Initializable {
     }
 
     private void startTimer() {
+
+        startTime = System.currentTimeMillis();
         Runnable task = () -> {
-            int seconds = TIME_LIMIT;
+            int seconds = timeLimit;
 
             while (seconds >= 0) {
                 int finalSeconds = seconds;
@@ -132,14 +141,13 @@ public class LevelController implements Initializable {
             });
         };
 
-        timerThread = new Thread(task);
+        Thread timerThread = new Thread(task);
         timerThread.setDaemon(true);
         timerThread.start();
 
     }
 
     private void moveSnake(int moveRow, int moveCol){
-
 
         int newRow = snakeRow + moveRow;
         int newCol = snakeCol + moveCol;
@@ -151,10 +159,26 @@ public class LevelController implements Initializable {
         String targetTile = map[newRow][newCol];
 
         if (targetTile.equals("W")) {
+            currentPoints = Math.max(0, currentPoints - 5);
+            if (!snakeBody.isEmpty()) {
+                ImageView tail = snakeBody.remove(snakeBody.size() - 1);
+                levelGrid.getChildren().remove(tail);
+            }
+
+            if (snakeBody.isEmpty()) {
+                Platform.runLater(() -> {
+                    try {
+                        Main.setScene("/view/fxml/you_died.fxml", "You Died");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
             return;
         }
 
         if (targetTile.equals("C")) {
+            currentPoints += 5;
             ImageView newSegment = createSnakeBody();
             levelGrid.add(newSegment, snakeCol, snakeRow);
             snakeBody.add(0, newSegment);
@@ -162,8 +186,17 @@ public class LevelController implements Initializable {
             removeNodeAt(newRow, newCol);
 
             if (!hasMoreCoins()) {
+                int levelId = Session.getCurrentUser().getLastLevelPlayed();
+                int userId = Session.getCurrentUser().getId(); // ajusta según tu clase User
+                int usedTime = timeLimit; // o calcula tiempo real usado si puedes
+
+                long endTime = System.currentTimeMillis();
+                int usedTimeSeconds = (int) ((endTime - startTime) / 1000);
+
+                LevelDAO.insertRecord(userId, levelId, currentPoints, usedTimeSeconds);
                 Platform.runLater(() -> {
                     try {
+                        WinController.setLevelData(levelId);
                         Main.setScene("/view/fxml/you_won.fxml", "You Won");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -210,5 +243,19 @@ public class LevelController implements Initializable {
             }
         }
         return false;
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Close Application?");
+        alert.setContentText("Are you sure you want to exit?");
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            System.exit(0);
+        }
     }
 }

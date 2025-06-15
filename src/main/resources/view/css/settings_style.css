@@ -1,0 +1,9 @@
+.settingsPane {
+    -fx-background-image: url("../../img/settingsBackground.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
+.settingsTitle {
+
+}

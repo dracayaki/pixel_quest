@@ -1,5 +1,5 @@
 .vbox {
-
+-fx-background-color: #000000;
 }
 
 .vbox2{
@@ -14,4 +14,38 @@
     -fx-background-color: #1c1c1c;
     -fx-text-fill: #5e07df;
     -fx-font-size: 14px;
+}
+
+.table-view {
+    -fx-background-color: #f0cede;
+    -fx-border-color: #caaac4;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #d9b3c7;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #fff5f9;
+    -fx-text-fill: #5c3c4f;
+}
+
+.table-view .table-row-cell:filled:selected,
+.table-view .table-row-cell:focused {
+    -fx-background-color: #e7bfd1;
+    -fx-text-fill: black;
+}
+
+.table-column {
+    -fx-alignment: CENTER;
 }

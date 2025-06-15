@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.SettingsController"
+      spacing="20" alignment="CENTER"
+      prefWidth="400" prefHeight="300"
+      stylesheets="@../../view/css/settings_style.css"
+      styleClass="settingsPane">
+
+    <Label text="Settings" styleClass="settingsTitle"/>
+
+    <!-- Volumen -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Volume:"/>
+        <Slider fx:id="volumeSlider" min="0" max="1" value="0.5" blockIncrement="0.1"/>
+    </HBox>
+
+    <!-- Idioma -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Language:"/>
+        <ComboBox fx:id="languageComboBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Español"/>
+                    <String fx:value="English"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <!-- Cerrar -->
+    <Button text="Close" onAction="#handleClose"/>
+</VBox>

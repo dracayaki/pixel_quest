@@ -7,14 +7,28 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <StackPane prefHeight="700" prefWidth="800"
            stylesheets="@../css/register_style.css"
            styleClass="loginPane"
            xmlns="http://javafx.com/javafx/23.0.1"
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="controller.RegisterController">
+
+    <HBox alignment="TOP_RIGHT" StackPane.alignment="TOP_RIGHT" style="-fx-padding: 10;">
+        <Button fx:id="exitBtn" onAction="#handleExit"
+                style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <graphic>
+                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                    <Image url="@../../img/exit.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </HBox>
     <VBox fx:id="loginPane" alignment="CENTER" maxWidth="350" maxHeight="350" spacing="15.0" >
-        <Label fx:id="titleLbl" text="Login" styleClass="titleLbl"/>
+        <Label fx:id="titleLbl" text="Register" styleClass="titleLbl"/>
         <TextField fx:id="usernameTxt" prefWidth="300.0" promptText="Username" styleClass="usernameTxt"/>
         <PasswordField fx:id="passwordTxt" prefWidth="300.0" promptText="Password" styleClass="passwordTxt"/>
         <PasswordField fx:id="confirmPasswordTxt" prefWidth="300" promptText="Repeat password" styleClass="passwordTxt"/>

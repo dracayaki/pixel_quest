@@ -1,17 +1,50 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.DAO.LevelDAO;
 import model.DAO.UserDAO;
+import model.Object.RecordEntry;
 import model.Object.Session;
 import model.Object.User;
 
-public class WinController {
+import java.net.URL;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class WinController  implements Initializable {
     public ImageView winImage;
     public Button nextBtn;
     public Button retryBtn;
     public Button menuBtn;
+    public Button exitBtn;
+    public TableView recordTable;
+    public TableColumn usernameCol;
+    public TableColumn pointsCol;
+    public TableColumn timeCol;
+
+    private static int currentLevelId;
+
+    public static void setLevelData(int id) {
+        currentLevelId = id;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
+        pointsCol.setCellValueFactory(new PropertyValueFactory<>("points"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+        List<RecordEntry> records = LevelDAO.getTopRecords(currentLevelId);
+        recordTable.setItems(FXCollections.observableArrayList(records));
+    }
+
 
     public void handleNextLevel(ActionEvent actionEvent) {
         try {
@@ -50,4 +83,20 @@ public class WinController {
             e.printStackTrace();
         }
     }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Close Application?");
+        alert.setContentText("Are you sure you want to exit?");
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            System.exit(0);
+        }
+    }
+
+
 }
