@@ -1,0 +1,13 @@
+.vbox {
+    -fx-background-color: #000000;
+}
+
+.image_btn {
+    -fx-background-color: #1c1c1c;
+}
+
+.menuBtn {
+    -fx-background-color: #1c1c1c;
+    -fx-text-fill: #5e07df;
+    -fx-font-size: 14px;
+}

@@ -8,18 +8,31 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.chart.BarChart?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.DeadController"
       prefHeight="600" prefWidth="800"
       alignment="CENTER" spacing="20"
-      stylesheets="@../css/level_style.css"
+      stylesheets="@../css/dead_style.css"
       styleClass="vbox">
 
     <ImageView fx:id="deathImage" fitWidth="250" preserveRatio="true" >
         <Image url="@../../img/dead.jpg"/>
     </ImageView>
 
+    <HBox alignment="CENTER" spacing="20">
+        <Button fx:id="retryBtn" onAction="#handleRetry" styleClass="image_btn" prefHeight="40" prefWidth="40">
+            <graphic>
+                <ImageView fitWidth="40" fitHeight="40"  preserveRatio="true">
+                    <Image url="@../../img/repeat.jpg"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button fx:id="menuBtn"  text="Main Menu" styleClass="menuBtn" onAction="#handleMenu"
+                prefHeight="40"/>
+    </HBox>
 
 
 </VBox>
